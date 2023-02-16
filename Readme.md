@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Maksim Polyakov](https://up.htmlacademy.ru/javascript/28/user/2068567).
-* Наставник: `Неизвестно`.
+* Наставник: [Roman Marchenko](https://htmlacademy.ru/profile/id505487).
 
 ---
 
