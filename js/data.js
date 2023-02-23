@@ -25,7 +25,6 @@ const names = [
   'Федор',
   'Егор',
 ];
-const PHOTO_ELEMENT_COUNT = 25;
 const COMMENT_COUNT = 3;
 const idPhoto = createIdGenerator(25);
 const urlPhoto = createIdGenerator(25);
@@ -46,6 +45,6 @@ const createPhotoElement = () => ({
   comments: Array.from({length: COMMENT_COUNT}, createComment),
 });
 
-const createPhotoElements = () => Array.from({length: PHOTO_ELEMENT_COUNT}, createPhotoElement);
+const createPhotoElements = (count) => Array.from({length: count}, createPhotoElement);
 
 export {createPhotoElements};
