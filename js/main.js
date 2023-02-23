@@ -1,2 +1,1 @@
-import {createPhotoElements} from './data.js';
-createPhotoElements();
+import './similar-pictures.js';
