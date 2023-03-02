@@ -36,11 +36,14 @@ const createIdGenerator = (max) => {
   };
 };
 
+const isEscapeKey = (evt) => evt.key === 'Escape';
+
 export {
   getRandomInteger,
   getRandomElement,
   getSomeRandomElement,
   createIdRandomGenerator,
-  createIdGenerator
+  createIdGenerator,
+  isEscapeKey
 };
 

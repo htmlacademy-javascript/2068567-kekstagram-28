@@ -16,3 +16,5 @@ similarPictureElements.forEach(({url, likes, comments}) => {
 });
 
 similarListElement.append(similarListFragment);
+
+export {similarPictureElements};
