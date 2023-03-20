@@ -25,7 +25,7 @@ const names = [
   'Федор',
   'Егор',
 ];
-const COMMENT_COUNT = 3;
+const COMMENT_COUNT = 19;
 const idPhoto = createIdGenerator(25);
 const urlPhoto = createIdGenerator(25);
 const idRandomComment = createIdRandomGenerator(999);

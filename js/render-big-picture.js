@@ -1,5 +1,3 @@
-import {similarPictureElements} from './similar-pictures.js';
-
 const bigPictureImg = document.querySelector('.big-picture__img');
 const mainImg = bigPictureImg.querySelector('img');
 const likesCount = document.querySelector('.likes-count');
@@ -8,33 +6,24 @@ const socialComments = document.querySelector('.social__comments');
 const socialComment = socialComments.querySelector('.social__comment');
 const socialCaption = document.querySelector('.social__caption');
 
-const findPhoto = (evt) => {
-  const shortPath = (evt.target.src).split('/').slice(-2).join('/');
-  const findPhotoSrc = similarPictureElements.find((pictureElement) => pictureElement.url === shortPath);
-  return findPhotoSrc;
-};
-
-const renderSocialComment = (evt) => {
+const renderSocialComment = ({comments}) => {
   socialComments.innerHTML = '';
-
-  findPhoto(evt).comments.forEach(({avatar, message, name}) => {
-    const copySocialComment = socialComment.cloneNode(true);
-    copySocialComment.querySelector('.social__picture').src = avatar;
-    copySocialComment.querySelector('.social__picture').alt = name;
-    copySocialComment.querySelector('.social__text').textContent = message;
-
-    socialComments.append(copySocialComment);
+  comments.forEach(({avatar, message, name}) => {
+    const cloneSocialComment = socialComment.cloneNode(true);
+    cloneSocialComment.querySelector('.social__picture').src = avatar;
+    cloneSocialComment.querySelector('.social__picture').alt = name;
+    cloneSocialComment.querySelector('.social__text').textContent = message;
+    cloneSocialComment.classList.add('hidden');
+    socialComments.append(cloneSocialComment);
   });
-
 };
 
-const renderPhotoData = (evt) => {
-  mainImg.src = findPhoto(evt).url;
-  likesCount.textContent = findPhoto(evt).likes;
-  commentsCount.textContent = findPhoto(evt).comments.length;
-  socialCaption.textContent = findPhoto(evt).description;
-  renderSocialComment(evt);
+const renderPhotoData = ({url, likes, comments, description}) => {
+  mainImg.src = url;
+  likesCount.textContent = likes;
+  commentsCount.textContent = comments.length;
+  socialCaption.textContent = description;
 };
 
-export {renderPhotoData};
+export {renderPhotoData, renderSocialComment};
 
