@@ -1408,3 +1408,8 @@ main {
 .hidden {
   display: none;
 }
+
+.img-upload__field-wrapper__error {
+  background-color: rgb(124, 21, 21);
+  border: 1px solid white;
+}

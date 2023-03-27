@@ -38,10 +38,6 @@ const openBigPicture = () => {
   document.addEventListener('keydown', onDocumentKeydown);
 };
 
-const closeBigPicture = () => {
-  changeClassClose();
-};
-
 const findPhotoPath = (evt) => {
   const correctPath = (evt.target.src).split('/').slice(-2).join('/');
   return similarPictureElements.find((pictureElement) => pictureElement.url === correctPath);
@@ -52,15 +48,16 @@ pictures.addEventListener('click', (evt) => {
     openBigPicture();
     renderSocialComment(findPhotoPath(evt));
     renderPhotoData(findPhotoPath(evt));
-  }
-  const socials = bigPicture.querySelectorAll('.social__comment');
-  for (let i = 0; i < COMMENT_AMOUNT; i++) {
-    socials[i].classList.remove('hidden');
+
+    const socials = bigPicture.querySelectorAll('.social__comment');
+    for (let i = 0; i < COMMENT_AMOUNT; i++) {
+      socials[i].classList.remove('hidden');
+    }
   }
 });
 
 bigPictureCancel.addEventListener('click', () => {
-  closeBigPicture();
+  changeClassClose();
 });
 
 commentsLoader.addEventListener('click', () => {
